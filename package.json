@@ -65,31 +65,32 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorTextFocus",
+          "submenu": "twinny.editorMenu",
+          "group": "navigation@0",
+          "when": "editorTextFocus"
+        }
+      ],
+      "twinny.editorMenu": [
+        {
           "command": "twinny.explain"
         },
         {
-          "when": "editorTextFocus",
           "command": "twinny.refactor"
         },
         {
-          "when": "editorTextFocus && !editorReadonly",
+          "when": "!editorReadonly",
           "command": "twinny.edit"
         },
         {
-          "when": "editorTextFocus",
           "command": "twinny.addTypes"
         },
         {
-          "when": "editorTextFocus",
           "command": "twinny.addTests"
         },
         {
-          "when": "editorTextFocus",
           "command": "twinny.generateDocs"
         },
         {
-          "when": "editorTextFocus",
           "command": "twinny.addFileToContext"
         },
         {
@@ -192,158 +193,158 @@
     "commands": [
       {
         "command": "twinny.explain",
-        "title": "Twinny - Explain"
+        "title": "%twinny.explain.title%"
       },
       {
         "command": "twinny.refactor",
-        "title": "Twinny - Refactor"
+        "title": "%twinny.refactor.title%"
       },
       {
         "command": "twinny.edit",
-        "title": "Twinny - Edit with instruction..."
+        "title": "%twinny.edit.title%"
       },
       {
         "command": "twinny.acceptEdit",
-        "title": "Twinny - Accept edit"
+        "title": "%twinny.acceptEdit.title%"
       },
       {
         "command": "twinny.rejectEdit",
-        "title": "Twinny - Reject edit"
+        "title": "%twinny.rejectEdit.title%"
       },
       {
         "command": "twinny.addTypes",
-        "title": "Twinny - Add types"
+        "title": "%twinny.addTypes.title%"
       },
       {
         "command": "twinny.addTests",
-        "title": "Twinny - Write tests"
+        "title": "%twinny.addTests.title%"
       },
       {
         "command": "twinny.generateDocs",
-        "title": "Twinny - Generate docs"
+        "title": "%twinny.generateDocs.title%"
       },
       {
         "command": "twinny.enable",
-        "shortTitle": "Enable twinny",
-        "title": "Enable twinny"
+        "shortTitle": "%twinny.enable.shortTitle%",
+        "title": "%twinny.enable.title%"
       },
       {
         "command": "twinny.stopGeneration",
-        "title": "Stop generation"
+        "title": "%twinny.stopGeneration.title%"
       },
       {
         "command": "twinny.disable",
-        "title": "Disable twinny",
-        "shortTitle": "Disable twinny"
+        "title": "%twinny.disable.title%",
+        "shortTitle": "%twinny.disable.shortTitle%"
       },
       {
         "command": "twinny.sidebar.focus",
-        "shortTitle": "Enable twinny sidebar",
-        "title": "Enable twinny sidebar"
+        "shortTitle": "%twinny.sidebar.focus.shortTitle%",
+        "title": "%twinny.sidebar.focus.title%"
       },
       {
         "command": "twinny.settings",
-        "shortTitle": "twinny settings",
-        "title": "Open twinny settings",
+        "shortTitle": "%twinny.settings.shortTitle%",
+        "title": "%twinny.settings.title%",
         "icon": "$(gear)"
       },
       {
         "command": "twinny.setUpTeam",
-        "shortTitle": "Set up for your team",
-        "title": "Twinny - Set up for your team (gateway, keys, usage)",
+        "shortTitle": "%twinny.setUpTeam.shortTitle%",
+        "title": "%twinny.setUpTeam.title%",
         "icon": "$(organization)"
       },
       {
         "command": "twinny.review",
-        "shortTitle": "twinny code reviewer",
-        "title": "Code reviewer",
+        "shortTitle": "%twinny.review.shortTitle%",
+        "title": "%twinny.review.title%",
         "icon": "$(git-pull-request)"
       },
       {
         "command": "twinny.conversationHistory",
-        "shortTitle": "twinny conversation history",
-        "title": "Open twinny conversation history",
+        "shortTitle": "%twinny.conversationHistory.shortTitle%",
+        "title": "%twinny.conversationHistory.title%",
         "icon": "$(history)"
       },
       {
         "command": "twinny.openPanelChat",
-        "shortTitle": "Open twinny panel chat",
-        "title": "Open twinny panel chat",
+        "shortTitle": "%twinny.openPanelChat.shortTitle%",
+        "title": "%twinny.openPanelChat.title%",
         "icon": "$(screen-full)"
       },
       {
         "command": "twinny.exportConversation",
-        "title": "Twinny - Open conversation as Markdown",
+        "title": "%twinny.exportConversation.title%",
         "icon": "$(markdown)"
       },
       {
         "command": "twinny.newConversation",
-        "shortTitle": "New chat",
-        "title": "Start a new chat",
+        "shortTitle": "%twinny.newConversation.shortTitle%",
+        "title": "%twinny.newConversation.title%",
         "icon": "$(plus)"
       },
       {
         "command": "twinny.templates",
-        "shortTitle": "Edit twinny templates",
-        "title": "Edit twinny templates",
+        "shortTitle": "%twinny.templates.shortTitle%",
+        "title": "%twinny.templates.title%",
         "icon": "$(pencil)"
       },
       {
         "command": "twinny.manageTemplates",
-        "shortTitle": "Manage twinny templates",
-        "title": "Manage twinny templates",
+        "shortTitle": "%twinny.manageTemplates.shortTitle%",
+        "title": "%twinny.manageTemplates.title%",
         "icon": "$(book)"
       },
       {
         "command": "twinny.manageProviders",
-        "shortTitle": "Manage twinny providers",
-        "title": "Manage twinny providers",
+        "shortTitle": "%twinny.manageProviders.shortTitle%",
+        "title": "%twinny.manageProviders.title%",
         "icon": "$(robot)"
       },
       {
         "command": "twinny.showLogs",
-        "title": "Twinny - Show logs"
+        "title": "%twinny.showLogs.title%"
       },
       {
         "command": "twinny.openChat",
-        "shortTitle": "Back to chat view",
-        "title": "Back to chat view",
+        "shortTitle": "%twinny.openChat.shortTitle%",
+        "title": "%twinny.openChat.title%",
         "icon": "$(arrow-left)"
       },
       {
         "command": "twinny.embeddings",
-        "shortTitle": "twinny embeddings",
-        "title": "Embedding options",
+        "shortTitle": "%twinny.embeddings.shortTitle%",
+        "title": "%twinny.embeddings.title%",
         "icon": "$(database)"
       },
       {
         "command": "twinny.addFileToContext",
-        "title": "Twinny - Add file to context"
+        "title": "%twinny.addFileToContext.title%"
       },
       {
         "command": "twinny.addSelectionToContext",
-        "title": "Twinny: Add Selection to Context"
+        "title": "%twinny.addSelectionToContext.title%"
       },
       {
         "command": "twinny.generateCommitMessage",
-        "title": "Twinny - Generate commit message",
+        "title": "%twinny.generateCommitMessage.title%",
         "icon": "$(sparkle)"
       },
       {
         "command": "twinny.statusBarMenu",
-        "title": "Twinny - Status bar options"
+        "title": "%twinny.statusBarMenu.title%"
       },
       {
         "command": "twinny.shareOllama",
-        "title": "Twinny - Share this computer's Ollama with my other devices (P2P)"
+        "title": "%twinny.shareOllama.title%"
       },
       {
         "command": "twinny.terminalCommand",
-        "title": "Twinny - Write a terminal command from a description"
+        "title": "%twinny.terminalCommand.title%"
       },
       {
         "command": "twinny.fixTerminalError",
-        "title": "Twinny - Fix the last terminal error"
+        "title": "%twinny.fixTerminalError.title%"
       }
     ],
     "keybindings": [
@@ -396,6 +397,12 @@
         }
       ]
     },
+    "submenus": [
+      {
+        "id": "twinny.editorMenu",
+        "label": "Twinny"
+      }
+    ],
     "configuration": {
       "title": "twinny",
       "properties": {
@@ -403,7 +410,7 @@
           "order": 0,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Toggles the Twinny extension on or off. When `true`, Twinny is active and ready to provide completions."
+          "markdownDescription": "%config.twinny.enabled.markdownDescription%"
         },
         "twinny.enabledLanguages": {
           "order": 1,
@@ -414,7 +421,7 @@
           "default": {
             "*": true
           },
-          "markdownDescription": "Specifies which languages to enable completions with Twinny for. Use `*` as the default for all languages. Example:\n```json\n{\n  \"*\": true,\n  \"python\": true,\n  \"javascript\": false\n}\n```"
+          "markdownDescription": "%config.twinny.enabledLanguages.markdownDescription%"
         },
         "twinny.locale": {
           "order": 2,
@@ -435,55 +442,55 @@
             "nl"
           ],
           "enumDescriptions": [
-            "English",
-            "Chinese (Simplified)",
-            "Chinese (Hong Kong)",
-            "German",
-            "Spanish",
-            "Spanish (Colombia)",
-            "Japanese",
-            "French",
-            "Italian",
-            "Portuguese",
-            "Russian",
-            "Korean",
-            "Dutch"
+            "%config.twinny.locale.enum.0%",
+            "%config.twinny.locale.enum.1%",
+            "%config.twinny.locale.enum.2%",
+            "%config.twinny.locale.enum.3%",
+            "%config.twinny.locale.enum.4%",
+            "%config.twinny.locale.enum.5%",
+            "%config.twinny.locale.enum.6%",
+            "%config.twinny.locale.enum.7%",
+            "%config.twinny.locale.enum.8%",
+            "%config.twinny.locale.enum.9%",
+            "%config.twinny.locale.enum.10%",
+            "%config.twinny.locale.enum.11%",
+            "%config.twinny.locale.enum.12%"
           ],
           "default": "en",
-          "markdownDescription": "Sets the locale for Twinny. The default is `en` (English)."
+          "markdownDescription": "%config.twinny.locale.markdownDescription%"
         },
         "twinny.autoSuggestEnabled": {
           "order": 3,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "When `true`, Twinny will automatically suggest completions. You can still manually trigger completions using the default shortcut (`Alt+\\`)."
+          "markdownDescription": "%config.twinny.autoSuggestEnabled.markdownDescription%"
         },
         "twinny.contextLength": {
           "order": 4,
           "type": "number",
           "default": 100,
-          "markdownDescription": "Specifies how many lines of context (before and after the current line) to include in Fill-in-Middle (FIM) prompts. A higher number provides more context but may slow down completions.",
+          "markdownDescription": "%config.twinny.contextLength.markdownDescription%",
           "required": true
         },
         "twinny.debounceWait": {
           "order": 5,
           "type": "number",
           "default": 300,
-          "markdownDescription": "Sets the delay (in milliseconds) before triggering the next completion. This helps reduce API calls and improve performance.",
+          "markdownDescription": "%config.twinny.debounceWait.markdownDescription%",
           "required": true
         },
         "twinny.temperature": {
           "order": 6,
           "type": "number",
           "default": 0.2,
-          "markdownDescription": "Controls the randomness of the model's output. Lower values (e.g., 0.2) produce more focused and deterministic outputs, while higher values (e.g., 0.8) lead to more diverse and creative completions.",
+          "markdownDescription": "%config.twinny.temperature.markdownDescription%",
           "required": true
         },
         "twinny.multilineCompletionsEnabled": {
           "order": 7,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "When `true`, Twinny will attempt to generate multi-line completions. This is an experimental feature and may not work perfectly in all scenarios."
+          "markdownDescription": "%config.twinny.multilineCompletionsEnabled.markdownDescription%"
         },
         "twinny.maxLines": {
           "dependencies": {
@@ -492,69 +499,69 @@
           "order": 8,
           "type": "number",
           "default": 40,
-          "markdownDescription": "Sets the maximum number of lines for multi-line completions. Only applies when `twinny.multilineCompletionsEnabled` is `true`."
+          "markdownDescription": "%config.twinny.maxLines.markdownDescription%"
         },
         "twinny.fileContextEnabled": {
           "order": 9,
           "type": "boolean",
           "default": false,
-          "markdownDescription": "When `true`, Twinny will scan neighboring documents to provide more context for completions. This is an experimental feature and may impact performance."
+          "markdownDescription": "%config.twinny.fileContextEnabled.markdownDescription%"
         },
         "twinny.recentEditsEnabled": {
           "order": 9,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Shows the model the last few changes you made, in any open file, as short diffs. A half-done rename or a pattern being applied across a file then carries into completions. Up to 6 changes and 2,500 characters."
+          "markdownDescription": "%config.twinny.recentEditsEnabled.markdownDescription%"
         },
         "twinny.lspContextEnabled": {
           "order": 9,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Includes matching IntelliSense symbols and available type signatures in FIM context. Uses installed completion providers, with up to 20 suggestions, 2,000 characters and a 150 ms wait limit. Works independently of file context."
+          "markdownDescription": "%config.twinny.lspContextEnabled.markdownDescription%"
         },
         "twinny.completionCacheEnabled": {
           "order": 10,
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Enables caching of Fill-in-Middle (FIM) completions for identical prompts. This can significantly improve performance but may use more memory."
+          "markdownDescription": "%config.twinny.completionCacheEnabled.markdownDescription%"
         },
         "twinny.numPredictChat": {
           "order": 11,
           "type": "number",
           "default": 512,
-          "markdownDescription": "Sets the maximum number of tokens to generate for chat completions. Higher values allow for longer completions but may increase response time.",
+          "markdownDescription": "%config.twinny.numPredictChat.markdownDescription%",
           "required": true
         },
         "twinny.numPredictFim": {
           "order": 12,
           "type": "number",
           "default": 512,
-          "markdownDescription": "Defines the maximum number of tokens for Fill-in-Middle (FIM) completions. Use `-1` for no limit. Twinny will attempt to stop at logical line breaks regardless of this setting.",
+          "markdownDescription": "%config.twinny.numPredictFim.markdownDescription%",
           "required": true
         },
         "twinny.enableSubsequentCompletions": {
           "order": 13,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "When `true`, Twinny will continue to make completion requests to the API after the previous completion was accepted. This can provide a more fluid completion experience."
+          "markdownDescription": "%config.twinny.enableSubsequentCompletions.markdownDescription%"
         },
         "twinny.embeddingIgnoredGlobs": {
           "order": 14,
           "type": "array",
           "default": [],
-          "markdownDescription": "Extra file patterns to skip when building embeddings, such as `**/*.md` or `**/fixtures/**`. Only source, config and documentation files are indexed to begin with; binaries such as fonts and images are always skipped."
+          "markdownDescription": "%config.twinny.embeddingIgnoredGlobs.markdownDescription%"
         },
         "twinny.embeddingUpdateOnSave": {
           "order": 14,
           "type": "boolean",
           "default": true,
-          "description": "Keep the workspace index current: re-embed a file when it is saved and forget it when it is deleted. Only applies once the workspace has been indexed."
+          "description": "%config.twinny.embeddingUpdateOnSave.description%"
         },
         "twinny.ollamaHostname": {
           "order": 15,
           "type": "string",
           "default": "0.0.0.0",
-          "markdownDescription": "Specifies the hostname for the Ollama API. Use `0.0.0.0` for localhost or provide a specific IP address or domain name.",
+          "markdownDescription": "%config.twinny.ollamaHostname.markdownDescription%",
           "required": true
         },
         "twinny.ollamaApiPort": {
@@ -564,7 +571,7 @@
             "null"
           ],
           "default": 11434,
-          "markdownDescription": "Sets the port number for the Ollama API. The default is `11434`, but you can change it if your Ollama instance uses a different port.",
+          "markdownDescription": "%config.twinny.ollamaApiPort.markdownDescription%",
           "required": false
         },
         "twinny.p2pPort": {
@@ -573,7 +580,7 @@
           "default": 49737,
           "minimum": 1,
           "maximum": 65535,
-          "markdownDescription": "UDP port this computer listens on when sharing its Ollama with paired devices (Providers → Devices → Share). Devices on your network connect to this port, so a firewall on this computer must allow it, e.g. `sudo ufw allow 49737/udp`. Takes effect the next time sharing starts."
+          "markdownDescription": "%config.twinny.p2pPort.markdownDescription%"
         },
         "twinny.teamShareSlots": {
           "order": 16,
@@ -581,25 +588,25 @@
           "default": 2,
           "minimum": 1,
           "maximum": 8,
-          "markdownDescription": "How many teammates' requests this computer runs at once while sharing it with the team (Providers → Share this computer). Takes effect the next time sharing starts."
+          "markdownDescription": "%config.twinny.teamShareSlots.markdownDescription%"
         },
         "twinny.keepAlive": {
           "order": 17,
           "type": "string",
           "default": "5m",
-          "markdownDescription": "Sets the duration to keep models in memory for Ollama API. Use formats like `5m` for 5 minutes or `1h` for 1 hour. Set to `-1` to keep models in memory indefinitely."
+          "markdownDescription": "%config.twinny.keepAlive.markdownDescription%"
         },
         "twinny.warmUpModel": {
           "order": 17,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Load the completion model when VS Code starts or regains focus, so the first completion does not wait for a cold model. Only for local model servers (Ollama, LM Studio, llama.cpp); hosted APIs are never called."
+          "markdownDescription": "%config.twinny.warmUpModel.markdownDescription%"
         },
         "twinny.ollamaUseTls": {
           "order": 18,
           "type": "boolean",
           "default": false,
-          "markdownDescription": "When `true`, Twinny will use TLS encryption for connections to the Ollama API. Ensure your Ollama instance is configured for TLS before enabling this option."
+          "markdownDescription": "%config.twinny.ollamaUseTls.markdownDescription%"
         },
         "twinny.secretShield": {
           "order": 18,
@@ -610,24 +617,24 @@
             "off"
           ],
           "enumDescriptions": [
-            "Redact credentials in prompts sent to anything that is not on this machine: hosted APIs, a Twinny gateway, a paired device, a server elsewhere on the network.",
-            "Redact credentials in every prompt, local servers included.",
-            "Send prompts as they are."
+            "%config.twinny.secretShield.enum.0%",
+            "%config.twinny.secretShield.enum.1%",
+            "%config.twinny.secretShield.enum.2%"
           ],
           "default": "offMachine",
-          "markdownDescription": "**Secret shield.** API keys, tokens, private keys and passwords in a prompt (your question, attached files, the code around the cursor) are replaced with placeholders like `REDACTED_GITHUB_TOKEN_1` before the request is sent, and put back wherever the reply repeats a placeholder. The model never sees the value; the chat shows how many were withheld. Detection covers well-known token formats, private key blocks, passwords in URLs, and secret-named values in code and `.env` files."
+          "markdownDescription": "%config.twinny.secretShield.markdownDescription%"
         },
         "twinny.enableLogging": {
           "order": 19,
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Writes what Twinny is doing to the **Twinny** output channel: one line per completion or chat request with model, timing, size and why it stopped. Set the channel's log level to *Debug* (the dropdown in the Output panel) to also see the prompts and replies. Warnings and errors are written even when this is off."
+          "markdownDescription": "%config.twinny.enableLogging.markdownDescription%"
         },
         "twinny.githubToken": {
           "order": 21,
           "type": "string",
           "default": "",
-          "markdownDescription": "Your personal GitHub access token. This is used for fetching data from GitHub repositories. Keep this token secure and do not share it."
+          "markdownDescription": "%config.twinny.githubToken.markdownDescription%"
         },
         "twinny.providerStorageLocation": {
           "order": 22,
@@ -637,14 +644,14 @@
             "file"
           ],
           "default": "globalState",
-          "markdownDescription": "Specifies where to store Twinny provider configurations. 'globalState' uses VS Code's global state (persists per domain, may be lost if domain changes frequently). 'file' stores configurations in a file within the extension's global storage directory (more resilient to domain changes)."
+          "markdownDescription": "%config.twinny.providerStorageLocation.markdownDescription%"
         },
         "twinny.reviewMaxDiffChars": {
           "order": 30,
           "type": "number",
           "default": 16000,
           "minimum": 2000,
-          "description": "Characters of diff sent to the model per code-review request. Larger reviews are split into parts. Lower this for models with small context windows; raise it for large-context models to get fewer parts."
+          "description": "%config.twinny.reviewMaxDiffChars.description%"
         }
       }
     }
