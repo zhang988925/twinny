@@ -9,6 +9,7 @@ import { GenerationRun, GenerationTracker } from "../generations"
 import { isCancelled, resolveInferenceProvider } from "../inference"
 import { Base } from "../providers/base"
 import { describeProviderErrorPlain, isAbortError } from "../providers/errors"
+import { TemplateProvider } from "../templates/provider"
 
 import { DiffLayout, layoutDiff, locateSnippet } from "./diff"
 import {
@@ -26,6 +27,7 @@ import {
   lineRange,
   spanRange
 } from "./region"
+import { getEditTarget } from "./target"
 import {
   appendTests,
   buildTestMessages,
@@ -93,9 +95,12 @@ export class InlineEditService extends Base {
   private readonly _removedWords = diffWordDecoration("-")
   private readonly _addedWords = diffWordDecoration("+")
 
+  private _templateProvider: TemplateProvider
+
   constructor(
     context: vscode.ExtensionContext,
-    private readonly _generations: GenerationTracker
+    private readonly _generations: GenerationTracker,
+    templateDir: string
   ) {
     super(context)
     context.subscriptions.push(
@@ -105,6 +110,8 @@ export class InlineEditService extends Base {
       }),
       vscode.window.onDidChangeVisibleTextEditors(() => this.decorate())
     )
+
+    this._templateProvider = new TemplateProvider(templateDir)
   }
 
   public get running() {
@@ -160,7 +167,17 @@ export class InlineEditService extends Base {
       return
     }
 
-    if (args?.requireSelection && !args.range && editor.selection.isEmpty) {
+    if (!args?.range && editor.selection.isEmpty) {
+      const lines = await getEditTarget(editor)
+      if (lines) {
+        editor.selection = new vscode.Selection(
+          lines[0], 0, lines[1], editor.document.lineAt(lines[1]).range.end.character
+        )
+        editor.revealRange(editor.selection, vscode.TextEditorRevealType.InCenterIfOutsideViewport)
+      }
+    }
+
+    if (args?.requireSelection && !args?.range && editor.selection.isEmpty) {
       vscode.window.showInformationMessage("Select the code to edit first.")
       return
     }
@@ -520,7 +537,10 @@ export class InlineEditService extends Base {
     const document = editor.document
     const range = region.range
     const { proposed } = region.sides()
-    const messages = buildEditMessages({
+    const inlineEditsystemPrompt = await this._templateProvider.readTemplate("inline-edit-system", {})
+    const messages = buildEditMessages(
+      inlineEditsystemPrompt,
+      {
       instruction,
       code: proposed,
       language: document.languageId,
@@ -548,7 +568,6 @@ export class InlineEditService extends Base {
         false
       )
     })
-
     await this.generate(provider, {
       region,
       messages,

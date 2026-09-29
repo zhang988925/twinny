@@ -233,7 +233,7 @@ export async function activate(context: ExtensionContext) {
     context
   )
 
-  const inlineEdit = new InlineEditService(context, generations)
+  const inlineEdit = new InlineEditService(context, generations, templateDir)
   // After activation has settled, so loading the model does not compete with it.
   setTimeout(() => completionProvider.warmModel("startup"), 3000)
 

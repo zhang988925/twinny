@@ -67,9 +67,10 @@ export const buildEditPrompt = (request: EditRequest): string => {
 }
 
 export const buildEditMessages = (
+  inlineEditsystemPrompt: string,
   request: EditRequest
 ): ChatCompletionMessage[] => [
-  { role: SYSTEM, content: EDIT_SYSTEM_PROMPT },
+  { role: SYSTEM, content: inlineEditsystemPrompt?.trim() ? inlineEditsystemPrompt : EDIT_SYSTEM_PROMPT },
   { role: USER, content: buildEditPrompt(request) }
 ]
 
